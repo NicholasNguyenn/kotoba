@@ -11,7 +11,7 @@ is resolved empirically by `scripts/phase0_smoke.py` rather than guessed.
 | Free-tier vector search | Supported; storage is the real constraint | [Vector quickstart](https://learn.microsoft.com/en-us/azure/search/search-get-started-vector) |
 | Free-tier idle deletion | A free service "might be deleted after extended periods of inactivity" | Service limits |
 | Semantic ranker free allowance | First 1,000 requests/month free (the default "free plan") | [Enable/disable billing](https://learn.microsoft.com/en-us/azure/search/semantic-how-to-enable-disable) |
-| Semantic ranker on Free tier | **Uncertain** — the throttling table lists Basic and up only, while the overview says it can be used free "subject to free tier service limits" | [Semantic overview](https://learn.microsoft.com/en-us/azure/search/semantic-search-overview) |
+| Semantic ranker on Free tier | **Resolved: yes, in specific regions.** The region table footnotes which regions "support agentic retrieval and semantic ranker on the free tier" — Canada Central is one | [Region support](https://learn.microsoft.com/en-us/azure/search/search-region-support) |
 | Azure for Students credit | $100, 12 months, no credit card | [Offer details](https://azure.microsoft.com/en-us/pricing/offers/ms-azr-0170p/) |
 | Azure OpenAI access request | No longer required for standard models | [Limited access](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/limited-access) |
 | Azure OpenAI on student subscriptions | **Uncertain** — not excluded in the official offer terms, but repeatedly reported as blocked in Microsoft Q&A | see below |
@@ -37,3 +37,50 @@ the results table needs semantic ranking. If the Free tier rejects it, the plan
 is a short-lived Basic service for the Phase 3 run only: Basic is billed hourly,
 so one afternoon is a couple of dollars rather than a month's $75+. Record which
 tier produced each row in `eval/results/`.
+
+## Region decision (this subscription)
+
+Azure for Students pins this subscription to five regions by policy
+(`RequestDisallowedByAzure` otherwise):
+`canadacentral, germanywestcentral, belgiumcentral, swedencentral, mexicocentral`.
+
+Find them at Portal -> Policy -> Authoring -> Assignments -> "Allowed resource
+deployment regions" -> Parameters. The set is per-subscription.
+
+Cross-referencing both services against that list:
+
+| Region | Chat model | Embeddings | Search | Semantic ranker on Free |
+| --- | --- | --- | --- | --- |
+| **swedencentral** | gpt-5-mini, gpt-5-nano, gpt-4o-mini, gpt-4.1-mini | yes | creation blocked (high demand) | yes, if creatable |
+| germanywestcentral | same as above | yes | creation blocked (high demand) | yes, if creatable |
+| **canadacentral** | **none** | yes | **available** | **yes** |
+| mexicocentral | no Azure OpenAI | no | available | no |
+| belgiumcentral | no Azure OpenAI | no | not offered | n/a |
+
+**Decision: a split deployment.**
+
+- **Azure OpenAI -> Sweden Central.** The only allowed regions with a small chat
+  model are Sweden Central and Germany West Central. Verified Global Standard:
+  `gpt-5-mini`, `gpt-5-nano`, `gpt-4o-mini`, `gpt-4.1-mini`,
+  `text-embedding-3-small`.
+- **Azure AI Search -> Canada Central.** It supports the semantic ranker *on the
+  Free tier*, and unlike Sweden Central and Germany West Central it is not
+  flagged as capacity-blocked for new services.
+
+Two consequences:
+
+**The fourth retrieval mode is free.** No Basic service is needed for the
+hybrid+reranker row after all. The semantic ranker free plan allows 1,000
+requests/month; Phase 3 needs ~75 semantic queries per sweep, so there is room
+to re-run many times.
+
+**Different regions is fine here, and it is a deliberate choice.** Same-region
+coexistence is required only for *AI enrichment* -- skillsets where Search calls
+the embedding model itself (integrated vectorization). Kotoba embeds in
+`ingest.py` and pushes vectors, so that dependency never applies.
+
+The cost is network: the online path embeds a query in Sweden, searches in
+Canada, and generates in Sweden, so p50 latency carries two transatlantic hops.
+Phase 6 must report latency with that geography stated, and the obvious
+optimization is to overlap the keyword leg with the query-embedding call (or
+cache query embeddings) rather than run them in sequence.
