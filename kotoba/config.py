@@ -5,6 +5,7 @@ Every Azure identifier lives here so no module reaches for os.environ directly.
 
 from functools import lru_cache
 
+from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
@@ -26,6 +27,23 @@ class Settings(BaseSettings):
     azure_search_api_key: str = ""
     azure_search_index: str = "kotoba-grammar"
     azure_search_semantic_enabled: bool = True
+
+    @field_validator("azure_openai_endpoint", mode="after")
+    @classmethod
+    def _normalize_openai_endpoint(cls, v: str) -> str:
+        """Accept what the Foundry portal shows and reduce it to the base.
+
+        The portal's "Azure OpenAI endpoint" field reads
+        https://<name>.openai.azure.com/openai/v1 -- that is the v1 API surface.
+        The AzureOpenAI client wants the bare resource origin and appends the
+        rest itself, so pasting the portal value verbatim would otherwise
+        produce .../openai/v1/openai/deployments/... and 404.
+        """
+        v = v.strip().rstrip("/")
+        for suffix in ("/openai/v1", "/openai"):
+            if v.endswith(suffix):
+                v = v[: -len(suffix)]
+        return v
 
     @property
     def semantic_config_name(self) -> str:

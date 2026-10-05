@@ -41,10 +41,16 @@ def check_chat() -> bool:
     response = client.chat.completions.create(
         model=s.azure_openai_chat_deployment,
         messages=[{"role": "user", "content": "Reply with the single word: ready"}],
-        max_completion_tokens=16,
+        # Reasoning models spend this budget on hidden reasoning before any
+        # visible output, so a small cap can return empty content and look like
+        # a failure. Keep it generous for a liveness check.
+        max_completion_tokens=512,
     )
     text = (response.choices[0].message.content or "").strip()
-    print(f"  chat ({s.azure_openai_chat_deployment}): {text!r}")
+    finish = response.choices[0].finish_reason
+    print(f"  chat ({s.azure_openai_chat_deployment}): {text!r} [finish_reason={finish}]")
+    if not text and finish == "length":
+        print("    -> empty content with finish_reason=length: raise max_completion_tokens")
     return bool(text)
 
 

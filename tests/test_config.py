@@ -25,3 +25,16 @@ def test_index_uses_japanese_analyzer_and_vector_dims():
 def test_semantic_can_be_omitted():
     settings = Settings(azure_search_index="t")
     assert build_index(settings=settings, with_semantic=False).semantic_search is None
+
+
+def test_openai_endpoint_strips_portal_v1_suffix():
+    """The Foundry portal shows .../openai/v1; the SDK needs the bare origin."""
+    base = "https://kotoba-foundry.openai.azure.com"
+    for pasted in (
+        f"{base}/openai/v1",
+        f"{base}/openai/v1/",
+        f"{base}/openai",
+        f"{base}/",
+        base,
+    ):
+        assert Settings(azure_openai_endpoint=pasted).azure_openai_endpoint == base
