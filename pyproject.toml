@@ -1,0 +1,34 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "kotoba"
+version = "0.1.0"
+description = "A Japanese reading companion that grounds every grammar explanation in retrieved evidence."
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.32",
+  "pydantic>=2.9",
+  "pydantic-settings>=2.6",
+  "openai>=1.54",
+  "azure-search-documents>=11.6.0",
+  "azure-core>=1.32",
+  "sudachipy>=0.6.8",
+  "sudachidict-core>=20241021",
+  "mcp>=1.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.3", "ruff>=0.7"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["kotoba"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

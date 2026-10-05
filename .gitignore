@@ -1,0 +1,28 @@
+# secrets
+.env
+*.key
+
+# raw downloads (large, re-fetchable)
+data/raw/
+data/processed/*.jsonl
+!data/processed/.gitkeep
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# caches we generate
+.cache/
+embeddings_cache/
+
+# os / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
