@@ -26,6 +26,7 @@ class CatalogEntry:
     meaning: str
     explanation: str
     match: tuple[tuple[str, str | None], ...]
+    after: str | None  # part of speech the preceding token must have
     source: str
     verified: bool
 
@@ -55,6 +56,7 @@ def load_catalog(path: Path | None = None) -> tuple[CatalogEntry, ...]:
                     meaning=r["meaning"],
                     explanation=r["explanation"],
                     match=tuple((m[0], m[1] if len(m) > 1 else None) for m in r["match"]),
+                    after=r.get("after"),
                     source=r["source"],
                     verified=r.get("verified", False),
                 )
@@ -74,6 +76,13 @@ def unverified(catalog: tuple[CatalogEntry, ...] | None = None) -> list[str]:
 def _matches_at(entry: CatalogEntry, tokens: list[Token], i: int) -> bool:
     if i + len(entry.match) > len(tokens):
         return False
+    if entry.after is not None:
+        # Several patterns are only themselves in the right environment. The
+        # ても of 読んでも follows a verb; the でも of でも可能性は... and
+        # いくらでも does not. The が of 猫が follows a noun; the conjunctive
+        # が of ようだが follows a predicate.
+        if i == 0 or tokens[i - 1].pos not in entry.after.split("|"):
+            return False
     for (lemma, pos), tok in zip(entry.match, tokens[i:]):
         # "て|で" matches either: SudachiPy lemmatizes the voiced te-form of
         # ぶ/む/ぬ/ぐ verbs (読んで, 飲んで) as で, not て.

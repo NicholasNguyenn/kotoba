@@ -72,3 +72,27 @@ def test_souda_senses_are_separated_by_pos():
     assert "そうだ（様態）" in _patterns("雨が降りそうだ。")
     assert "そうだ" in _patterns("彼は来るそうだ。")
     assert "そうだ" not in _patterns("雨が降りそうだ。")
+
+
+def test_temo_requires_a_preceding_verb():
+    """でも as 'but' and いくらでも are not the ても grammar point.
+
+    Regression: accepting で for the voiced te-form made ても over-match
+    every でも in the language until the preceding part of speech was checked.
+    """
+    assert "ても" in _patterns("本を読んでも分からない。")
+    assert "ても" in _patterns("尋ねられても分からない。")
+    assert "ても" not in _patterns("でも可能性は低そうだね。")
+    assert "ても" not in _patterns("時間はいくらでも作れる。")
+
+
+def test_ga_requires_a_preceding_noun():
+    # Conjunctive が ("but") follows a predicate, not a noun.
+    assert "が" in _patterns("猫が好きです。")
+    assert "が" not in _patterns("明日雨のようだががんばろう。")
+    assert "が" not in _patterns("知られているが変えられない。")
+
+
+def test_polite_nakereba_narimasen_matches():
+    assert "なければならない" in _patterns("私は眠らなければなりません。")
+    assert "なければならない" in _patterns("明日までに出さなければならない。")

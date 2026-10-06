@@ -13,15 +13,15 @@ retrieval**, on a frozen set of tricky grammar cases.
 
 ## Status
 
-Phase 3 of 7. Retrieval comparison measured; the explanation-error headline
-(Phase 5) is not yet.
+Phase 4 of 7. Retrieval and grammar detection measured; the
+explanation-error headline (Phase 5) is not yet.
 
 - [x] 0 · Setup: Azure resources, repo skeleton, smoke test
 - [ ] 1 · Data: ~100-point grammar catalog (N5–N3), JMdict, Tatoeba
       *(12 seed entries + lemma matching done; all unverified)*
 - [x] 2 · Eval sets, frozen before any tuning
 - [x] 3 · Retrieval: keyword / vector / hybrid / hybrid+reranker
-- [ ] 4 · Reading breakdown
+- [x] 4 · Reading breakdown — detection measured
 - [ ] 5 · Plain LLM vs Kotoba on the trap set
 - [ ] 6 · JLPT reranking, MCP tools, latency
 - [ ] 7 · Polish
@@ -66,6 +66,37 @@ re-run rather than folded into these numbers.
 Retrieval always returns its top k, so the 5 abstention questions all return
 something here. Deciding that the evidence does not support an answer is the
 generator's job, measured in Phase 5 — not retrieval's.
+
+### Grammar-point detection (Phase 4)
+
+30 hand-labeled passages, 56 labels. Labels were assigned by reading each
+sentence, never by running the detector. 22 of the 30 carry a deliberate
+lookalike — とても containing ても, だけど containing だけ, sentence-initial
+でも meaning "but", 私もそうだ meaning "so do I", conjunctive が, purpose-のに.
+
+| | Precision | Recall | F1 |
+| --- | --- | --- | --- |
+| Before error analysis | 0.871 | 0.964 | 0.915 |
+| **After fixing three defects** | **0.933** | **1.000** | **0.966** |
+| After, excluding は and が | 0.903 | 1.000 | 0.949 |
+
+は and が are trivially matched and appear in almost every sentence, so the
+figure is given with and without them.
+
+**These defects were found by running against the frozen set and then fixed,
+so the 0.933 is a post-hoc number on 30 passages and could be optimistic.**
+The fixes were root causes, not tweaks: `ても` needed a preceding verb (accepting
+で for the voiced te-form had made it match every でも in the language — a
+regression from the previous fix); `が` needed a preceding noun to separate the
+subject marker from the conjunctive "but"; and `なければなりません` tokenizes
+with ます where the plain form has ない.
+
+Three of the four remaining false positives are `のに`, which is left
+unfixed: 着くのに ("in order to arrive") is the purpose sense and is not
+reliably separable from the concessive one. The fourth is a `が` the detector
+found correctly and the labels missed, so the true precision is marginally
+higher than reported — under-claimed rather than corrected, since every label
+fixed after the fact favors the system.
 
 ## Design notes
 
