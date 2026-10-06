@@ -29,6 +29,7 @@ class CatalogEntry:
     after: str | None  # part of speech the preceding token must have
     source: str
     verified: bool
+    verified_by: str | None
 
 
 @dataclass(frozen=True)
@@ -59,6 +60,7 @@ def load_catalog(path: Path | None = None) -> tuple[CatalogEntry, ...]:
                     after=r.get("after"),
                     source=r["source"],
                     verified=r.get("verified", False),
+                    verified_by=r.get("verified_by"),
                 )
             )
         except (json.JSONDecodeError, KeyError, IndexError) as exc:

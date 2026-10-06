@@ -41,9 +41,14 @@ def test_confirm_candidates_rejects_what_catalog_did_not_match():
     assert got == {"だけ": True, "ばかり": False}
 
 
-def test_seed_entries_are_flagged_unverified():
-    # Guards the resume claim: nothing counts as evidence until checked.
-    assert len(unverified()) == len(load_catalog())
+def test_verified_entries_carry_an_attribution():
+    """Guards the resume claim: an entry counts as evidence only once a human
+    has checked it, and the check is attributable to someone."""
+    for entry in load_catalog():
+        if entry.verified:
+            assert entry.verified_by, f"{entry.id} is verified by nobody"
+    # unverified() stays the way to find what still needs checking.
+    assert isinstance(unverified(), list)
 
 
 def test_voiced_te_form_matches():
