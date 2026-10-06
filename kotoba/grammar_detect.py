@@ -75,7 +75,9 @@ def _matches_at(entry: CatalogEntry, tokens: list[Token], i: int) -> bool:
     if i + len(entry.match) > len(tokens):
         return False
     for (lemma, pos), tok in zip(entry.match, tokens[i:]):
-        if tok.lemma != lemma or (pos and tok.pos != pos):
+        # "て|で" matches either: SudachiPy lemmatizes the voiced te-form of
+        # ぶ/む/ぬ/ぐ verbs (読んで, 飲んで) as で, not て.
+        if tok.lemma not in lemma.split("|") or (pos and tok.pos != pos):
             return False
     return True
 
@@ -84,15 +86,29 @@ def detect(
     tokens: list[Token], catalog: tuple[CatalogEntry, ...] | None = None
 ) -> list[DetectedPoint]:
     catalog = catalog or load_catalog()
-    # ponytail: overlapping matches are all reported, longest first. Add
-    # overlap resolution only if Phase 4 precision shows double-counting.
     found = [
         DetectedPoint(e.id, e.pattern, (i, i + len(e.match)), True)
         for i in range(len(tokens))
         for e in catalog
         if _matches_at(e, tokens, i)
     ]
-    return sorted(found, key=lambda d: (d.span[0], d.span[0] - d.span[1]))
+    # A match wholly inside a longer one is the wrong reading, not an extra
+    # one: 着いたばかり is "just arrived", so reporting ばかり ("nothing but")
+    # alongside たばかり would be a false positive, not a second grammar point.
+    kept = [
+        d
+        for d in found
+        if not any(
+            o is not d
+            and o.span[1] - o.span[0] > d.span[1] - d.span[0]
+            and o.span[0] <= d.span[0]
+            and d.span[1] <= o.span[1]
+            for o in found
+        )
+    ]
+    # ponytail: only containment is resolved; partial overlaps are still both
+    # reported. Revisit if Phase 4 precision shows that costing anything.
+    return sorted(kept, key=lambda d: (d.span[0], d.span[0] - d.span[1]))
 
 
 def confirm_candidates(

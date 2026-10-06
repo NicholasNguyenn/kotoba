@@ -44,3 +44,31 @@ def test_confirm_candidates_rejects_what_catalog_did_not_match():
 def test_seed_entries_are_flagged_unverified():
     # Guards the resume claim: nothing counts as evidence until checked.
     assert len(unverified()) == len(load_catalog())
+
+
+def test_voiced_te_form_matches():
+    """読んで / 飲んで lemmatize the te-particle as で, not て.
+
+    Missing this silently dropped ても, ている and てしまう for every
+    ぶ/む/ぬ/ぐ verb -- a large share of real sentences.
+    """
+    assert "ても" in _patterns("本を読んでも分からない。")
+    assert "ている" in _patterns("本を読んでいる。")
+    assert "てしまう" in _patterns("本を読んでしまった。")
+
+
+def test_tabakari_suppresses_bakari():
+    # 着いたばかり is "just arrived", not "nothing but arriving".
+    got = _patterns("今着いたばかりです。")
+    assert "たばかり" in got and "ばかり" not in got
+
+
+def test_bakari_still_matches_on_its_own():
+    assert "ばかり" in _patterns("彼はゲームばかりしている。")
+
+
+def test_souda_senses_are_separated_by_pos():
+    # Appearance そう is 形状詞, hearsay そう is 名詞.
+    assert "そうだ（様態）" in _patterns("雨が降りそうだ。")
+    assert "そうだ" in _patterns("彼は来るそうだ。")
+    assert "そうだ" not in _patterns("雨が降りそうだ。")
