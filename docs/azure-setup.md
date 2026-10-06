@@ -11,7 +11,7 @@ is resolved empirically by `scripts/phase0_smoke.py` rather than guessed.
 | Free-tier vector search | Supported; storage is the real constraint | [Vector quickstart](https://learn.microsoft.com/en-us/azure/search/search-get-started-vector) |
 | Free-tier idle deletion | A free service "might be deleted after extended periods of inactivity" | Service limits |
 | Semantic ranker free allowance | First 1,000 requests/month free (the default "free plan") | [Enable/disable billing](https://learn.microsoft.com/en-us/azure/search/semantic-how-to-enable-disable) |
-| Semantic ranker on Free tier | **Resolved: yes, in specific regions.** The region table footnotes which regions "support agentic retrieval and semantic ranker on the free tier" — Canada Central is one | [Region support](https://learn.microsoft.com/en-us/azure/search/search-region-support) |
+| Semantic ranker on Free tier | **Confirmed by running it** (2026-10-05): a semantic query against a Free-tier Canada Central service was accepted. The region table footnotes which regions support it on free; Canada Central is one | [Region support](https://learn.microsoft.com/en-us/azure/search/search-region-support) + `scripts/phase0_smoke.py` |
 | Azure for Students credit | $100, 12 months, no credit card | [Offer details](https://azure.microsoft.com/en-us/pricing/offers/ms-azr-0170p/) |
 | Azure OpenAI access request | No longer required for standard models | [Limited access](https://learn.microsoft.com/en-us/azure/foundry/responsible-ai/openai/limited-access) |
 | Azure OpenAI on student subscriptions | **Uncertain** — not excluded in the official offer terms, but repeatedly reported as blocked in Microsoft Q&A | see below |
@@ -84,3 +84,23 @@ Canada, and generates in Sweden, so p50 latency carries two transatlantic hops.
 Phase 6 must report latency with that geography stated, and the obvious
 optimization is to overlap the keyword leg with the query-embedding call (or
 cache query embeddings) rather than run them in sequence.
+
+## Phase 0 result
+
+`scripts/phase0_smoke.py` passed on 2026-10-05:
+
+```
+embedding: 1536 dims (expected 1536) OK
+chat (gpt-5-mini): 'ready' [finish_reason=stop]
+index: created with semantic configuration
+keyword query on empty index: 0 results (0 expected)
+semantic query: accepted -- semantic ranker usable on this tier
+```
+
+So `AZURE_SEARCH_SEMANTIC_ENABLED=true` stands, and the hybrid+reranker row of
+the Phase 3 table needs no paid tier.
+
+One trap worth remembering: the search service was deleted and recreated to get
+off the Standard tier that the Foundry IQ flow provisioned ($249.98/month).
+Admin keys do not survive that, so a key copied before the recreate authenticates
+as garbage.

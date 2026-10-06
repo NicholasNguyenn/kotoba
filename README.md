@@ -13,10 +13,12 @@ retrieval**, on a frozen set of tricky grammar cases.
 
 ## Status
 
-Phase 0 of 7 — Azure resources and skeleton. No results measured yet.
+Phase 1 of 7 — data. Phase 0 is verified end to end against live Azure
+(`scripts/phase0_smoke.py` passes). No results measured yet.
 
 - [x] 0 · Setup: Azure resources, repo skeleton, smoke test
 - [ ] 1 · Data: ~100-point grammar catalog (N5–N3), JMdict, Tatoeba
+      *(12 seed entries + lemma matching done; all unverified)*
 - [ ] 2 · Eval sets, frozen before any tuning
 - [ ] 3 · Retrieval: keyword / vector / hybrid / hybrid+reranker
 - [ ] 4 · Reading breakdown
