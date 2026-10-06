@@ -1,0 +1,18 @@
+{
+  "baseline": {
+    "n": 35,
+    "wrong": 2,
+    "abstained": 2,
+    "correct": 31,
+    "error_rate_of_answers": 0.061,
+    "error_rate_of_all": 0.057
+  },
+  "kotoba": {
+    "n": 35,
+    "wrong": 7,
+    "abstained": 15,
+    "correct": 13,
+    "error_rate_of_answers": 0.35,
+    "error_rate_of_all": 0.2
+  }
+}

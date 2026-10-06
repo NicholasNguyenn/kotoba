@@ -30,17 +30,30 @@ BASELINE_SYSTEM = (
     "four sentences. Be specific and concrete."
 )
 
-KOTOBA_SYSTEM = (
+KOTOBA_SYSTEM = "\n".join([
     "You are a Japanese grammar tutor. Answer ONLY from the evidence provided "
     "below. Every claim you make must be supported by that evidence, and you "
-    "must cite the document it came from in square brackets, like [g-wa-001].\n"
-    "\n"
+    "must cite the document it came from in square brackets, like [g-wa-001].",
+    "",
     "If the evidence does not support an answer to the question, reply with "
     f"exactly {ABSTAIN} and nothing else. Do not answer from your own "
-    "knowledge. A wrong answer is worse than no answer.\n"
-    "\n"
-    "Answer in two to four sentences."
-)
+    "knowledge. A wrong answer is worse than no answer.",
+    "",
+    # Added after the first trap-set run: the model read a Tatoeba sentence
+    # containing 窓が開いている and concluded ている was progressive there.
+    # An example demonstrates a pattern without explaining it.
+    "An example sentence shows a pattern being used; it does not explain it. "
+    "Do not infer a grammatical rule from an example sentence alone. If the "
+    f"only relevant evidence is example sentences, reply {ABSTAIN}.",
+    "",
+    # Also from that run: two English questions were answered in Japanese,
+    # because the evidence is overwhelmingly Japanese and pulled the model
+    # with it.
+    "Answer in the SAME LANGUAGE as the question. If the learner asks in "
+    "English, answer in English, even though the evidence is in Japanese.",
+    "",
+    "Answer in two to four sentences.",
+])
 
 
 @dataclass
@@ -76,7 +89,8 @@ def format_evidence(docs: list[dict[str, Any]]) -> str:
     for d in docs:
         body = " / ".join(x for x in (d.get("content_ja"), d.get("content_en")) if x)
         level = f" (JLPT {d['jlpt_level']})" if d.get("jlpt_level") else ""
-        out.append(f"[{d['id']}]{level} {body}")
+        kind = d.get("doc_type", "")
+        out.append(f"[{d['id']}] ({kind}{level}) {body}")
     return "\n".join(out)
 
 

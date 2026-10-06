@@ -1,0 +1,282 @@
+{
+  "s-001": {
+    "case_id": "t-027",
+    "arm": "baseline"
+  },
+  "s-002": {
+    "case_id": "t-005",
+    "arm": "baseline"
+  },
+  "s-003": {
+    "case_id": "t-019",
+    "arm": "kotoba"
+  },
+  "s-004": {
+    "case_id": "t-018",
+    "arm": "baseline"
+  },
+  "s-005": {
+    "case_id": "t-020",
+    "arm": "baseline"
+  },
+  "s-006": {
+    "case_id": "t-010",
+    "arm": "baseline"
+  },
+  "s-007": {
+    "case_id": "t-015",
+    "arm": "baseline"
+  },
+  "s-008": {
+    "case_id": "t-025",
+    "arm": "baseline"
+  },
+  "s-009": {
+    "case_id": "t-023",
+    "arm": "kotoba"
+  },
+  "s-010": {
+    "case_id": "t-019",
+    "arm": "baseline"
+  },
+  "s-011": {
+    "case_id": "t-029",
+    "arm": "baseline"
+  },
+  "s-012": {
+    "case_id": "t-009",
+    "arm": "kotoba"
+  },
+  "s-013": {
+    "case_id": "t-010",
+    "arm": "kotoba"
+  },
+  "s-014": {
+    "case_id": "t-024",
+    "arm": "kotoba"
+  },
+  "s-015": {
+    "case_id": "t-007",
+    "arm": "kotoba"
+  },
+  "s-016": {
+    "case_id": "t-031",
+    "arm": "baseline"
+  },
+  "s-017": {
+    "case_id": "t-004",
+    "arm": "kotoba"
+  },
+  "s-018": {
+    "case_id": "t-021",
+    "arm": "baseline"
+  },
+  "s-019": {
+    "case_id": "t-012",
+    "arm": "baseline"
+  },
+  "s-020": {
+    "case_id": "t-030",
+    "arm": "kotoba"
+  },
+  "s-021": {
+    "case_id": "t-016",
+    "arm": "kotoba"
+  },
+  "s-022": {
+    "case_id": "t-017",
+    "arm": "kotoba"
+  },
+  "s-023": {
+    "case_id": "t-013",
+    "arm": "baseline"
+  },
+  "s-024": {
+    "case_id": "t-026",
+    "arm": "kotoba"
+  },
+  "s-025": {
+    "case_id": "t-001",
+    "arm": "kotoba"
+  },
+  "s-026": {
+    "case_id": "t-027",
+    "arm": "kotoba"
+  },
+  "s-027": {
+    "case_id": "t-020",
+    "arm": "kotoba"
+  },
+  "s-028": {
+    "case_id": "t-025",
+    "arm": "kotoba"
+  },
+  "s-029": {
+    "case_id": "t-023",
+    "arm": "baseline"
+  },
+  "s-030": {
+    "case_id": "t-033",
+    "arm": "baseline"
+  },
+  "s-031": {
+    "case_id": "t-022",
+    "arm": "baseline"
+  },
+  "s-032": {
+    "case_id": "t-002",
+    "arm": "baseline"
+  },
+  "s-033": {
+    "case_id": "t-004",
+    "arm": "baseline"
+  },
+  "s-034": {
+    "case_id": "t-012",
+    "arm": "kotoba"
+  },
+  "s-035": {
+    "case_id": "t-005",
+    "arm": "kotoba"
+  },
+  "s-036": {
+    "case_id": "t-003",
+    "arm": "kotoba"
+  },
+  "s-037": {
+    "case_id": "t-008",
+    "arm": "kotoba"
+  },
+  "s-038": {
+    "case_id": "t-009",
+    "arm": "baseline"
+  },
+  "s-039": {
+    "case_id": "t-032",
+    "arm": "baseline"
+  },
+  "s-040": {
+    "case_id": "t-034",
+    "arm": "kotoba"
+  },
+  "s-041": {
+    "case_id": "t-015",
+    "arm": "kotoba"
+  },
+  "s-042": {
+    "case_id": "t-018",
+    "arm": "kotoba"
+  },
+  "s-043": {
+    "case_id": "t-014",
+    "arm": "baseline"
+  },
+  "s-044": {
+    "case_id": "t-024",
+    "arm": "baseline"
+  },
+  "s-045": {
+    "case_id": "t-028",
+    "arm": "baseline"
+  },
+  "s-046": {
+    "case_id": "t-032",
+    "arm": "kotoba"
+  },
+  "s-047": {
+    "case_id": "t-035",
+    "arm": "kotoba"
+  },
+  "s-048": {
+    "case_id": "t-017",
+    "arm": "baseline"
+  },
+  "s-049": {
+    "case_id": "t-013",
+    "arm": "kotoba"
+  },
+  "s-050": {
+    "case_id": "t-006",
+    "arm": "baseline"
+  },
+  "s-051": {
+    "case_id": "t-008",
+    "arm": "baseline"
+  },
+  "s-052": {
+    "case_id": "t-016",
+    "arm": "baseline"
+  },
+  "s-053": {
+    "case_id": "t-001",
+    "arm": "baseline"
+  },
+  "s-054": {
+    "case_id": "t-007",
+    "arm": "baseline"
+  },
+  "s-055": {
+    "case_id": "t-003",
+    "arm": "baseline"
+  },
+  "s-056": {
+    "case_id": "t-022",
+    "arm": "kotoba"
+  },
+  "s-057": {
+    "case_id": "t-014",
+    "arm": "kotoba"
+  },
+  "s-058": {
+    "case_id": "t-021",
+    "arm": "kotoba"
+  },
+  "s-059": {
+    "case_id": "t-035",
+    "arm": "baseline"
+  },
+  "s-060": {
+    "case_id": "t-011",
+    "arm": "kotoba"
+  },
+  "s-061": {
+    "case_id": "t-028",
+    "arm": "kotoba"
+  },
+  "s-062": {
+    "case_id": "t-006",
+    "arm": "kotoba"
+  },
+  "s-063": {
+    "case_id": "t-034",
+    "arm": "baseline"
+  },
+  "s-064": {
+    "case_id": "t-030",
+    "arm": "baseline"
+  },
+  "s-065": {
+    "case_id": "t-026",
+    "arm": "baseline"
+  },
+  "s-066": {
+    "case_id": "t-031",
+    "arm": "kotoba"
+  },
+  "s-067": {
+    "case_id": "t-033",
+    "arm": "kotoba"
+  },
+  "s-068": {
+    "case_id": "t-002",
+    "arm": "kotoba"
+  },
+  "s-069": {
+    "case_id": "t-011",
+    "arm": "baseline"
+  },
+  "s-070": {
+    "case_id": "t-029",
+    "arm": "kotoba"
+  }
+}

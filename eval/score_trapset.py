@@ -10,6 +10,7 @@ graded sheet gives a partial result instead of a wrong one.
 
 from __future__ import annotations
 
+import argparse
 import json
 import sys
 from collections import defaultdict
@@ -21,10 +22,14 @@ VALID = {"correct", "wrong", "abstained"}
 
 
 def main() -> int:
-    sheet_path = RESULTS / "trapset_grading_sheet.jsonl"
-    key_path = RESULTS / "trapset_key.json"
+    p = argparse.ArgumentParser()
+    p.add_argument("--tag", default="run2", help="which run's sheet to score")
+    args = p.parse_args()
+
+    sheet_path = RESULTS / f"trapset_grading_sheet_{args.tag}.jsonl"
+    key_path = RESULTS / f"trapset_key_{args.tag}.json"
     if not sheet_path.exists():
-        print("No grading sheet. Run: python eval/run_trapset.py")
+        print(f"No grading sheet for tag {args.tag!r}. Run: python eval/run_trapset.py")
         return 1
 
     key = json.loads(key_path.read_text(encoding="utf-8"))
@@ -63,7 +68,7 @@ def main() -> int:
                     "error_rate_of_all": round(wrong / n, 3) if n else None}
         print(f"| {label} | {n} | {wrong} | {abst} | {corr} | **{rate:.1%}** |")
 
-    (RESULTS / "trapset_scores.json").write_text(
+    (RESULTS / f"trapset_scores_{args.tag}.json").write_text(
         json.dumps(out, indent=2), encoding="utf-8")
     print("\nError rate is wrong / (wrong + correct): abstentions are excluded from")
     print("the denominator, since declining to answer is not an error. The")

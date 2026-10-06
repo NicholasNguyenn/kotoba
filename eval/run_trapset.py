@@ -28,7 +28,12 @@ from kotoba.retriever import Mode, retrieve  # noqa: E402
 
 TRAP_SET = ROOT / "eval" / "trap_set.jsonl"
 RESULTS = ROOT / "eval" / "results"
-SHUFFLE_SEED = 20261005
+
+# Each run gets its own seed and its own filenames. Run 1's graded sheet is
+# data: a re-run must never overwrite it, and reusing the seed would put each
+# arm back in the same sheet positions, which leaks the arm to a grader who
+# saw the first sheet.
+SEEDS = {"run1": 20261005, "run2": 20261006}
 
 
 def load_cases() -> list[dict]:
@@ -48,7 +53,8 @@ def run_baseline(cases: list[dict]) -> list[dict]:
 def run_kotoba(cases: list[dict], top: int = 5) -> list[dict]:
     out = []
     for i, c in enumerate(cases, 1):
-        docs = retrieve(c["question"], mode=Mode.HYBRID_SEMANTIC, top=top)
+        docs = retrieve(c["question"], mode=Mode.HYBRID_SEMANTIC, top=top,
+                        prefer_type="grammar")
         a = answer_with_evidence(c["question"], docs)
         out.append({"id": c["id"], "arm": "kotoba", "text": a.text,
                     "citations": a.citations, "abstained": a.abstained,
@@ -58,7 +64,7 @@ def run_kotoba(cases: list[dict], top: int = 5) -> list[dict]:
     return out
 
 
-def write_grading_sheet(cases: list[dict], answers: list[dict]) -> Path:
+def write_grading_sheet(cases: list[dict], answers: list[dict], tag: str = "run2") -> Path:
     by_case = {c["id"]: c for c in cases}
     items = []
     for a in answers:
@@ -75,17 +81,17 @@ def write_grading_sheet(cases: list[dict], answers: list[dict]) -> Path:
             "abstained": a["abstained"],
             "grade": "",  # correct | wrong | abstained
         })
-    random.Random(SHUFFLE_SEED).shuffle(items)
+    random.Random(SEEDS.get(tag, 20261006)).shuffle(items)
     for n, it in enumerate(items, 1):
         it["sheet_id"] = f"s-{n:03d}"
 
     RESULTS.mkdir(parents=True, exist_ok=True)
-    key = RESULTS / "trapset_key.json"
+    key = RESULTS / f"trapset_key_{tag}.json"
     key.write_text(json.dumps(
         {it["sheet_id"]: {"case_id": it["case_id"], "arm": it["arm"]} for it in items},
         indent=2), encoding="utf-8")
 
-    sheet = RESULTS / "trapset_grading_sheet.jsonl"
+    sheet = RESULTS / f"trapset_grading_sheet_{tag}.jsonl"
     sheet.write_text("\n".join(
         json.dumps({k: v for k, v in it.items() if k != "arm"}, ensure_ascii=False)
         for it in items) + "\n", encoding="utf-8")
@@ -95,6 +101,7 @@ def write_grading_sheet(cases: list[dict], answers: list[dict]) -> Path:
 def main() -> int:
     p = argparse.ArgumentParser()
     p.add_argument("--arm", choices=["baseline", "kotoba", "both"], default="both")
+    p.add_argument("--tag", default="run2", help="names the output files for this run")
     args = p.parse_args()
 
     cases = load_cases()
@@ -109,7 +116,7 @@ def main() -> int:
     if args.arm in ("kotoba", "both"):
         answers += run_kotoba(cases)
 
-    (RESULTS / f"trapset_answers_{args.arm}.jsonl").write_text(
+    (RESULTS / f"trapset_answers_{args.arm}_{args.tag}.jsonl").write_text(
         "\n".join(json.dumps(a, ensure_ascii=False) for a in answers) + "\n", encoding="utf-8")
 
     kot = [a for a in answers if a["arm"] == "kotoba"]
@@ -120,10 +127,10 @@ def main() -> int:
               f" ({n_bad} of those for unresolvable citations)")
 
     if args.arm == "both":
-        sheet = write_grading_sheet(cases, answers)
+        sheet = write_grading_sheet(cases, answers, args.tag)
         print(f"\nblind grading sheet: {sheet}")
         print("Grade each 'grade' field as correct | wrong | abstained, then run")
-        print("  python eval/score_trapset.py")
+        print(f"  python eval/score_trapset.py --tag {args.tag}")
     return 0
 
 

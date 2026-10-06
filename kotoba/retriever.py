@@ -50,17 +50,14 @@ def _jlpt_rerank(results: list[dict], level: str, boost: float = 0.5) -> list[di
     return sorted(results, key=key)
 
 
-def retrieve(
-    query: str,
-    mode: Mode = Mode.HYBRID,
-    top: int = 5,
-    jlpt_level: str | None = None,
-    settings: Settings | None = None,
+def _search(
+    query: str, mode: Mode, top: int, s: Settings, odata_filter: str | None = None
 ) -> list[dict[str, Any]]:
-    s = settings or get_settings()
     client = search_client(settings=s)
 
     kwargs: dict[str, Any] = {"top": top, "select": SELECT}
+    if odata_filter:
+        kwargs["filter"] = odata_filter
 
     if mode is Mode.VECTOR:
         kwargs["search_text"] = None
@@ -90,6 +87,35 @@ def retrieve(
         # when present so the rerank is what actually orders the output.
         doc["_score"] = d.get("@search.reranker_score") or d.get("@search.score") or 0.0
         results.append(doc)
+    return results
+
+
+def retrieve(
+    query: str,
+    mode: Mode = Mode.HYBRID,
+    top: int = 5,
+    jlpt_level: str | None = None,
+    prefer_type: str | None = None,
+    reserve: int = 3,
+    settings: Settings | None = None,
+) -> list[dict[str, Any]]:
+    """Retrieve evidence.
+
+    `prefer_type` reserves slots for one doc_type. A grammar question needs a
+    grammar entry to answer from: the corpus holds 1,400 Tatoeba sentences
+    against 14 catalog entries, so an unreserved top-5 is usually all example
+    sentences, and an example sentence demonstrates a pattern without
+    explaining it. Measured cost of not doing this is in the README.
+    """
+    s = settings or get_settings()
+
+    results = _search(query, mode, top, s)
+    if prefer_type:
+        preferred = _search(
+            query, mode, min(reserve, top), s, odata_filter=f"doc_type eq '{prefer_type}'"
+        )
+        seen = {d["id"] for d in preferred}
+        results = preferred + [d for d in results if d["id"] not in seen]
 
     if jlpt_level:
         results = _jlpt_rerank(results, jlpt_level)
