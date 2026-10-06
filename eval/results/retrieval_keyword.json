@@ -1,0 +1,1132 @@
+{
+  "summary": {
+    "all": {
+      "n": 78,
+      "recall": 0.821,
+      "mrr": 0.786
+    },
+    "en": {
+      "n": 35,
+      "recall": 0.686,
+      "mrr": 0.61
+    },
+    "ja": {
+      "n": 32,
+      "recall": 0.938,
+      "mrr": 0.938
+    },
+    "mixed": {
+      "n": 11,
+      "recall": 0.909,
+      "mrr": 0.909
+    }
+  },
+  "mode": "keyword",
+  "top": 5,
+  "per_question": [
+    {
+      "id": "q-001",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "tatoeba-5207",
+        "jmdict-1469810",
+        "jmdict-1464460",
+        "jmdict-1323930",
+        "jmdict-1232920"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-002",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "tatoeba-5047",
+        "tatoeba-4826",
+        "tatoeba-4704",
+        "tatoeba-74715",
+        "tatoeba-5186"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-003",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "tatoeba-5054",
+        "jmdict-1006630",
+        "tatoeba-4794",
+        "tatoeba-4949",
+        "tatoeba-5001"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-004",
+      "hit": true,
+      "rr": 0.5,
+      "returned": [
+        "tatoeba-74239",
+        "g-nakereba-001",
+        "tatoeba-74747",
+        "tatoeba-5116",
+        "tatoeba-5348"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-005",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "tatoeba-5054",
+        "tatoeba-4794",
+        "tatoeba-4949",
+        "tatoeba-5001",
+        "tatoeba-5118"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-006",
+      "hit": true,
+      "rr": 0.5,
+      "returned": [
+        "jmdict-1594110",
+        "g-dake-001",
+        "tatoeba-74108",
+        "tatoeba-74062",
+        "tatoeba-5038"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-007",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-noni-001",
+        "tatoeba-4818",
+        "tatoeba-5170",
+        "tatoeba-4798",
+        "tatoeba-5137"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-008",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "jmdict-1625780",
+        "tatoeba-4794",
+        "tatoeba-4949",
+        "tatoeba-5001",
+        "tatoeba-5054"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-009",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "tatoeba-4824",
+        "tatoeba-5345",
+        "tatoeba-74731",
+        "tatoeba-74747",
+        "tatoeba-5265"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-010",
+      "hit": true,
+      "rr": 0.3333333333333333,
+      "returned": [
+        "tatoeba-74091",
+        "tatoeba-5054",
+        "g-souda-hearsay-001",
+        "tatoeba-74797",
+        "jmdict-1103630"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-011",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-youda-001",
+        "tatoeba-5054",
+        "tatoeba-4841",
+        "tatoeba-4857",
+        "tatoeba-74214"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-012",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "tatoeba-5054",
+        "tatoeba-4794",
+        "tatoeba-5118",
+        "tatoeba-4767",
+        "tatoeba-5263"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-013",
+      "hit": true,
+      "rr": 0.5,
+      "returned": [
+        "tatoeba-74772",
+        "g-souda-appearance-001",
+        "tatoeba-74690",
+        "tatoeba-4800",
+        "tatoeba-4925"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-014",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "tatoeba-74364",
+        "jmdict-1161790",
+        "tatoeba-4826",
+        "tatoeba-5309",
+        "jmdict-1594110"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-015",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "tatoeba-4822",
+        "jmdict-1464460",
+        "jmdict-1241450"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-016",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "tatoeba-74239",
+        "jmdict-1441090",
+        "jmdict-1546770",
+        "jmdict-1555140",
+        "jmdict-1657730"
+      ],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-017",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [],
+      "lang": "en",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-018",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "jmdict-1610740",
+        "tatoeba-4748",
+        "tatoeba-5207",
+        "tatoeba-74484",
+        "tatoeba-74549"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-019",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-bakari-001",
+        "tatoeba-74407",
+        "tatoeba-74364",
+        "tatoeba-4808",
+        "tatoeba-74187"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-020",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-bakari-001",
+        "g-dake-001",
+        "jmdict-1610740",
+        "tatoeba-5059",
+        "tatoeba-4748"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-021",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "tatoeba-74569"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-022",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-teshimau-001",
+        "tatoeba-74364",
+        "tatoeba-74713",
+        "tatoeba-5001",
+        "jmdict-1466950"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-023",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-youda-001",
+        "jmdict-1007310",
+        "jmdict-1008770",
+        "g-souda-hearsay-001",
+        "tatoeba-74772"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-024",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-nakereba-001",
+        "tatoeba-4787",
+        "tatoeba-5051",
+        "tatoeba-5077",
+        "jmdict-2119310"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-025",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-teiru-001",
+        "jmdict-2788160",
+        "tatoeba-4822",
+        "tatoeba-4977",
+        "tatoeba-74438"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-026",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-kotogadekiru-001",
+        "jmdict-1004550",
+        "tatoeba-4810",
+        "tatoeba-4933",
+        "tatoeba-5262"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-027",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-temo-001",
+        "jmdict-1466950",
+        "jmdict-1348900",
+        "jmdict-1747960",
+        "jmdict-1009780"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-028",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-tabakari-001",
+        "tatoeba-74364",
+        "tatoeba-4808",
+        "tatoeba-74187"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-029",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-souda-hearsay-001",
+        "g-souda-appearance-001",
+        "jmdict-1006630",
+        "jmdict-2735320",
+        "jmdict-1007310"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-030",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-souda-appearance-001",
+        "g-souda-hearsay-001",
+        "jmdict-1006630",
+        "jmdict-2735320",
+        "jmdict-1007310"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-031",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-bakari-001",
+        "tatoeba-74407",
+        "g-dake-001",
+        "g-tabakari-001"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-032",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-nakereba-001",
+        "tatoeba-4787",
+        "tatoeba-5051",
+        "tatoeba-5077",
+        "jmdict-2119310"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-033",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-kotogadekiru-001",
+        "jmdict-1004550",
+        "tatoeba-4810",
+        "tatoeba-4933",
+        "tatoeba-5262"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-034",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-teshimau-001",
+        "jmdict-1305380",
+        "tatoeba-4720",
+        "jmdict-1009780",
+        "jmdict-1188370"
+      ],
+      "lang": "ja",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-035",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-bakari-001",
+        "g-dake-001",
+        "tatoeba-74226",
+        "jmdict-1232920",
+        "tatoeba-5207"
+      ],
+      "lang": "mixed",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-036",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-temo-001",
+        "jmdict-1466950",
+        "jmdict-1348900",
+        "tatoeba-74543",
+        "tatoeba-74806"
+      ],
+      "lang": "mixed",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-037",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-teiru-001",
+        "tatoeba-5047",
+        "tatoeba-5028",
+        "tatoeba-5113",
+        "tatoeba-5139"
+      ],
+      "lang": "mixed",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-038",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "tatoeba-4822",
+        "g-ga-001"
+      ],
+      "lang": "mixed",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-039",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-teshimau-001",
+        "jmdict-1490570",
+        "jmdict-1305380",
+        "tatoeba-5102",
+        "tatoeba-4720"
+      ],
+      "lang": "mixed",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-040",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-souda-appearance-001",
+        "g-souda-hearsay-001",
+        "jmdict-1006630",
+        "jmdict-2735320",
+        "jmdict-1007310"
+      ],
+      "lang": "mixed",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-041",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-tabakari-001",
+        "g-bakari-001",
+        "tatoeba-74226",
+        "tatoeba-74407",
+        "g-dake-001"
+      ],
+      "lang": "mixed",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-042",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "g-youda-001",
+        "jmdict-1007310",
+        "jmdict-1008770",
+        "g-souda-hearsay-001",
+        "tatoeba-4797"
+      ],
+      "lang": "mixed",
+      "kind": "grammar"
+    },
+    {
+      "id": "q-043",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1154120",
+        "tatoeba-5047",
+        "tatoeba-4826",
+        "tatoeba-4704",
+        "tatoeba-74715"
+      ],
+      "lang": "mixed",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-044",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1154120",
+        "jmdict-1598110",
+        "jmdict-1286370",
+        "jmdict-1575990",
+        "tatoeba-5095"
+      ],
+      "lang": "en",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-045",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1318560",
+        "jmdict-1325210",
+        "jmdict-1426200",
+        "jmdict-1455950",
+        "tatoeba-74401"
+      ],
+      "lang": "ja",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-046",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1318560",
+        "jmdict-1318090"
+      ],
+      "lang": "en",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-047",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1380180"
+      ],
+      "lang": "ja",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-048",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1380180",
+        "tatoeba-74057",
+        "jmdict-1598700",
+        "jmdict-1442810",
+        "jmdict-1568950"
+      ],
+      "lang": "en",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-049",
+      "hit": true,
+      "rr": 0.5,
+      "returned": [
+        "tatoeba-5054",
+        "jmdict-1063130",
+        "tatoeba-4794",
+        "tatoeba-4949",
+        "tatoeba-5001"
+      ],
+      "lang": "en",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-050",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1063130"
+      ],
+      "lang": "ja",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-051",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1354970",
+        "tatoeba-74364",
+        "jmdict-1161790",
+        "tatoeba-4826",
+        "tatoeba-5309"
+      ],
+      "lang": "mixed",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-052",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1354970",
+        "tatoeba-74008",
+        "tatoeba-74364",
+        "jmdict-1313590",
+        "tatoeba-5178"
+      ],
+      "lang": "en",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-053",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1220430",
+        "jmdict-1610230",
+        "jmdict-1582990",
+        "jmdict-1031800",
+        "jmdict-1158810"
+      ],
+      "lang": "en",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-054",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1220430",
+        "tatoeba-5162",
+        "tatoeba-74175",
+        "tatoeba-74700",
+        "tatoeba-74722"
+      ],
+      "lang": "ja",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-055",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1402610"
+      ],
+      "lang": "ja",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-056",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1402610",
+        "jmdict-1301910",
+        "tatoeba-74342",
+        "tatoeba-74612",
+        "jmdict-1514140"
+      ],
+      "lang": "en",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-057",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1512280"
+      ],
+      "lang": "ja",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-058",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1512280",
+        "jmdict-1270150",
+        "tatoeba-4740",
+        "jmdict-1098820",
+        "jmdict-1614290"
+      ],
+      "lang": "en",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-059",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1483050"
+      ],
+      "lang": "ja",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-060",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1483050"
+      ],
+      "lang": "en",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-061",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1415270",
+        "tatoeba-74364",
+        "jmdict-1161790",
+        "tatoeba-4826",
+        "tatoeba-5309"
+      ],
+      "lang": "mixed",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-062",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1090530",
+        "tatoeba-5022",
+        "tatoeba-74009",
+        "jmdict-1126600",
+        "tatoeba-74011"
+      ],
+      "lang": "en",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-063",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1042500"
+      ],
+      "lang": "ja",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-064",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1552820",
+        "tatoeba-74011"
+      ],
+      "lang": "ja",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-065",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1552820",
+        "jmdict-1399660",
+        "jmdict-1547310",
+        "jmdict-1288310",
+        "tatoeba-5266"
+      ],
+      "lang": "en",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-066",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1611260"
+      ],
+      "lang": "ja",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-067",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1611260",
+        "jmdict-1301910",
+        "tatoeba-5083",
+        "jmdict-1110230",
+        "tatoeba-74017"
+      ],
+      "lang": "en",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-068",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "jmdict-1052740"
+      ],
+      "lang": "ja",
+      "kind": "vocab"
+    },
+    {
+      "id": "q-069",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "tatoeba-4900",
+        "jmdict-1405800",
+        "tatoeba-5085",
+        "tatoeba-4733",
+        "tatoeba-74753"
+      ],
+      "lang": "en",
+      "kind": "sentence"
+    },
+    {
+      "id": "q-070",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "tatoeba-4900",
+        "g-temo-001",
+        "jmdict-1466950",
+        "tatoeba-6015",
+        "tatoeba-4974"
+      ],
+      "lang": "ja",
+      "kind": "sentence"
+    },
+    {
+      "id": "q-071",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "tatoeba-4832",
+        "tatoeba-5174",
+        "tatoeba-5077",
+        "tatoeba-5261",
+        "tatoeba-74414"
+      ],
+      "lang": "en",
+      "kind": "sentence"
+    },
+    {
+      "id": "q-072",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "tatoeba-4832",
+        "jmdict-1264540",
+        "jmdict-1008340",
+        "tatoeba-4839",
+        "jmdict-1610740"
+      ],
+      "lang": "ja",
+      "kind": "sentence"
+    },
+    {
+      "id": "q-073",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "tatoeba-4977",
+        "jmdict-1391040",
+        "tatoeba-74692",
+        "tatoeba-4978",
+        "tatoeba-74790"
+      ],
+      "lang": "en",
+      "kind": "sentence"
+    },
+    {
+      "id": "q-074",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "tatoeba-5195",
+        "tatoeba-5193",
+        "tatoeba-5171",
+        "tatoeba-4932",
+        "tatoeba-74110"
+      ],
+      "lang": "en",
+      "kind": "sentence"
+    },
+    {
+      "id": "q-075",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "tatoeba-5195",
+        "jmdict-1269330",
+        "tatoeba-74536",
+        "tatoeba-74089",
+        "tatoeba-5075"
+      ],
+      "lang": "ja",
+      "kind": "sentence"
+    },
+    {
+      "id": "q-076",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "tatoeba-74562",
+        "tatoeba-4956",
+        "tatoeba-48302",
+        "tatoeba-5007",
+        "jmdict-1587100"
+      ],
+      "lang": "en",
+      "kind": "sentence"
+    },
+    {
+      "id": "q-077",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "tatoeba-74562",
+        "jmdict-1373090",
+        "jmdict-2740510",
+        "tatoeba-74029",
+        "jmdict-1013190"
+      ],
+      "lang": "ja",
+      "kind": "sentence"
+    },
+    {
+      "id": "q-078",
+      "hit": true,
+      "rr": 1.0,
+      "returned": [
+        "tatoeba-74689",
+        "tatoeba-74230",
+        "tatoeba-74166",
+        "tatoeba-74784",
+        "tatoeba-5208"
+      ],
+      "lang": "en",
+      "kind": "sentence"
+    },
+    {
+      "id": "q-079",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "jmdict-1329860",
+        "tatoeba-4794",
+        "tatoeba-4949",
+        "tatoeba-5001",
+        "tatoeba-5054"
+      ],
+      "lang": "en",
+      "kind": "none"
+    },
+    {
+      "id": "q-080",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "jmdict-1371610",
+        "tatoeba-74174",
+        "tatoeba-4869",
+        "tatoeba-5003",
+        "tatoeba-74239"
+      ],
+      "lang": "en",
+      "kind": "none"
+    },
+    {
+      "id": "q-081",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "tatoeba-74526",
+        "tatoeba-74239",
+        "tatoeba-5067",
+        "tatoeba-5109",
+        "tatoeba-74060"
+      ],
+      "lang": "ja",
+      "kind": "none"
+    },
+    {
+      "id": "q-082",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "jmdict-1132190",
+        "jmdict-1360820",
+        "jmdict-1188370",
+        "jmdict-1464460",
+        "jmdict-1486250"
+      ],
+      "lang": "en",
+      "kind": "none"
+    },
+    {
+      "id": "q-083",
+      "hit": false,
+      "rr": 0.0,
+      "returned": [
+        "g-kotogadekiru-001",
+        "jmdict-1505510",
+        "tatoeba-74584",
+        "tatoeba-74442",
+        "jmdict-1524650"
+      ],
+      "lang": "mixed",
+      "kind": "none"
+    }
+  ],
+  "p50_ms": 901.7
+}
