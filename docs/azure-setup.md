@@ -109,11 +109,18 @@ as garbage.
 
 | Documents | Storage used | Quota | Per doc |
 | --- | --- | --- | --- |
-| 2,912 (12 grammar + 1,500 JMdict + 1,400 Tatoeba) | 41.6 MB | 50 MB | ~14.3 KB |
+| 2,914 @ 1536 dims | over quota | 50 MB | ~17 KB |
+| 2,914 @ 512 dims | 11.5 MB | 50 MB | ~3.9 KB |
 
-Per-document cost is about 2.4x the raw 1536-dim vector (6 KB); the remainder
-is HNSW graph and text index. **79% of the Free tier is consumed**, leaving
-room for roughly 750 more documents at these dimensions.
+At 1536 dimensions the corpus did not fit: the reported usage lagged at 41.6 MB
+and then adding two documents was rejected with `Storage quota has been
+exceeded`. Do not trust the storage counter as a live gauge; it trails reality.
+
+At 512 dimensions the same 2,914 documents occupy 11.5 MB (22%), leaving room
+for roughly 9,000 more. `text-embedding-3-small` is trained for this reduction.
+All retrieval modes share the same embedding, so the comparison between them is
+unaffected; the absolute recall@5 figures are reported alongside the dimension
+count.
 
 Uploads must be batched small. At 100 documents per request the payload is
 ~3 MB of JSON floats and the Free tier resets the connection

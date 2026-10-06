@@ -39,13 +39,13 @@ PROCESSED = Path(__file__).resolve().parent.parent / "data" / "processed"
 
 # Caps chosen to stay well inside the Free tier's 50 MB. Start conservative;
 # report_storage() says how much room is left.
-# Measured 2026-10-05: 2,912 documents consumed 41.6 MB of the 50 MB quota,
-# i.e. ~14.3 KB/doc -- roughly 2.4x the raw 6 KB vector, the rest being HNSW
-# graph and text index. That leaves room for only ~750 more documents.
-# ponytail: text-embedding-3-small supports dimension reduction, so dropping
-# EMBEDDING_DIMENSIONS to 512 would cut ~10 KB/doc and roughly triple capacity.
-# Do that only if Phase 3 shows too few distractors; it changes recall@5, so it
-# would have to happen before the eval sets are frozen, not after.
+# Measured 2026-10-05. At 1536 dims, 2,914 documents exceeded the Free tier's
+# 50 MB outright. At 512 dims the same corpus uses 11.5 MB (~3.9 KB/doc), a
+# 4.4x reduction, leaving room for roughly 9,000 more documents.
+#
+# The switch was made before the eval sets were frozen and before any retrieval
+# mode had run, because embedding dimensions change recall@5 -- doing it later
+# would have invalidated the comparison.
 # A 1536-dim vector serializes to roughly 30 KB of JSON, so a 100-document
 # batch is a ~3 MB POST. The Free tier's shared infrastructure resets those
 # connections; 25 keeps each request under a megabyte.

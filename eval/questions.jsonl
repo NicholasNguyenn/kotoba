@@ -1,0 +1,83 @@
+{"id": "q-001", "query": "what is the difference between wa and ga", "lang": "en", "kind": "grammar", "gold": ["g-wa-001", "g-ga-001"], "note": "romaji"}
+{"id": "q-002", "query": "what does bakari mean", "lang": "en", "kind": "grammar", "gold": ["g-bakari-001"], "note": "romaji"}
+{"id": "q-003", "query": "how do I say 'even if' in Japanese", "lang": "en", "kind": "grammar", "gold": ["g-temo-001"], "note": ""}
+{"id": "q-004", "query": "grammar for expressing obligation, must or have to", "lang": "en", "kind": "grammar", "gold": ["g-nakereba-001"], "note": ""}
+{"id": "q-005", "query": "how to say you are able to do something", "lang": "en", "kind": "grammar", "gold": ["g-kotogadekiru-001"], "note": ""}
+{"id": "q-006", "query": "which particle means only", "lang": "en", "kind": "grammar", "gold": ["g-dake-001", "g-bakari-001"], "note": ""}
+{"id": "q-007", "query": "even though, despite, contrary to expectation", "lang": "en", "kind": "grammar", "gold": ["g-noni-001"], "note": ""}
+{"id": "q-008", "query": "how do I make the progressive tense", "lang": "en", "kind": "grammar", "gold": ["g-teiru-001"], "note": ""}
+{"id": "q-009", "query": "expressing regret about something that happened", "lang": "en", "kind": "grammar", "gold": ["g-teshimau-001"], "note": ""}
+{"id": "q-010", "query": "how to say 'I heard that' or 'reportedly'", "lang": "en", "kind": "grammar", "gold": ["g-souda-hearsay-001"], "note": ""}
+{"id": "q-011", "query": "how to say something seems or appears to be", "lang": "en", "kind": "grammar", "gold": ["g-youda-001"], "note": ""}
+{"id": "q-012", "query": "how to say I just did something a moment ago", "lang": "en", "kind": "grammar", "gold": ["g-tabakari-001"], "note": ""}
+{"id": "q-013", "query": "how to say it looks like it is about to rain", "lang": "en", "kind": "grammar", "gold": ["g-souda-appearance-001"], "note": ""}
+{"id": "q-014", "query": "nakereba naranai meaning", "lang": "en", "kind": "grammar", "gold": ["g-nakereba-001"], "note": "romaji"}
+{"id": "q-015", "query": "koto ga dekiru explanation", "lang": "en", "kind": "grammar", "gold": ["g-kotogadekiru-001"], "note": "romaji"}
+{"id": "q-016", "query": "temo grammar point", "lang": "en", "kind": "grammar", "gold": ["g-temo-001"], "note": "romaji"}
+{"id": "q-017", "query": "teshimau nuance", "lang": "en", "kind": "grammar", "gold": ["g-teshimau-001"], "note": "romaji"}
+{"id": "q-018", "query": "「は」と「が」の違い", "lang": "ja", "kind": "grammar", "gold": ["g-wa-001", "g-ga-001"], "note": ""}
+{"id": "q-019", "query": "ばかりの意味", "lang": "ja", "kind": "grammar", "gold": ["g-bakari-001"], "note": ""}
+{"id": "q-020", "query": "だけとばかりの違いは何ですか", "lang": "ja", "kind": "grammar", "gold": ["g-dake-001", "g-bakari-001"], "note": ""}
+{"id": "q-021", "query": "のにの使い方", "lang": "ja", "kind": "grammar", "gold": ["g-noni-001"], "note": ""}
+{"id": "q-022", "query": "てしまうとはどういう意味ですか", "lang": "ja", "kind": "grammar", "gold": ["g-teshimau-001"], "note": ""}
+{"id": "q-023", "query": "「ようだ」の意味", "lang": "ja", "kind": "grammar", "gold": ["g-youda-001"], "note": ""}
+{"id": "q-024", "query": "なければならないの意味", "lang": "ja", "kind": "grammar", "gold": ["g-nakereba-001"], "note": ""}
+{"id": "q-025", "query": "ている形の説明", "lang": "ja", "kind": "grammar", "gold": ["g-teiru-001"], "note": ""}
+{"id": "q-026", "query": "ことができる 文法", "lang": "ja", "kind": "grammar", "gold": ["g-kotogadekiru-001"], "note": ""}
+{"id": "q-027", "query": "ても 使い方", "lang": "ja", "kind": "grammar", "gold": ["g-temo-001"], "note": ""}
+{"id": "q-028", "query": "たばかり 意味", "lang": "ja", "kind": "grammar", "gold": ["g-tabakari-001"], "note": ""}
+{"id": "q-029", "query": "そうだ 伝聞", "lang": "ja", "kind": "grammar", "gold": ["g-souda-hearsay-001"], "note": ""}
+{"id": "q-030", "query": "そうだ 様態", "lang": "ja", "kind": "grammar", "gold": ["g-souda-appearance-001"], "note": ""}
+{"id": "q-031", "query": "ばかり", "lang": "ja", "kind": "grammar", "gold": ["g-bakari-001"], "note": "kana-only"}
+{"id": "q-032", "query": "なければならない", "lang": "ja", "kind": "grammar", "gold": ["g-nakereba-001"], "note": "kana-only"}
+{"id": "q-033", "query": "ことができる", "lang": "ja", "kind": "grammar", "gold": ["g-kotogadekiru-001"], "note": "kana-only"}
+{"id": "q-034", "query": "てしまう", "lang": "ja", "kind": "grammar", "gold": ["g-teshimau-001"], "note": "kana-only"}
+{"id": "q-035", "query": "ばかり vs だけ difference", "lang": "mixed", "kind": "grammar", "gold": ["g-bakari-001", "g-dake-001"], "note": ""}
+{"id": "q-036", "query": "when to use のに vs ても", "lang": "mixed", "kind": "grammar", "gold": ["g-noni-001", "g-temo-001"], "note": ""}
+{"id": "q-037", "query": "what does ている mean", "lang": "mixed", "kind": "grammar", "gold": ["g-teiru-001"], "note": ""}
+{"id": "q-038", "query": "は particle explanation", "lang": "mixed", "kind": "grammar", "gold": ["g-wa-001"], "note": ""}
+{"id": "q-039", "query": "てしまう nuance in casual speech", "lang": "mixed", "kind": "grammar", "gold": ["g-teshimau-001"], "note": ""}
+{"id": "q-040", "query": "そうだ hearsay or appearance", "lang": "mixed", "kind": "grammar", "gold": ["g-souda-hearsay-001", "g-souda-appearance-001"], "note": ""}
+{"id": "q-041", "query": "たばかり vs ばかり", "lang": "mixed", "kind": "grammar", "gold": ["g-tabakari-001", "g-bakari-001"], "note": ""}
+{"id": "q-042", "query": "ようだ meaning", "lang": "mixed", "kind": "grammar", "gold": ["g-youda-001"], "note": ""}
+{"id": "q-043", "query": "what does 安定 mean", "lang": "mixed", "kind": "vocab", "gold": ["jmdict-1154120"], "note": ""}
+{"id": "q-044", "query": "Japanese word for stability or equilibrium", "lang": "en", "kind": "vocab", "gold": ["jmdict-1154120"], "note": ""}
+{"id": "q-045", "query": "自発的", "lang": "ja", "kind": "vocab", "gold": ["jmdict-1318560"], "note": ""}
+{"id": "q-046", "query": "spontaneous, voluntary", "lang": "en", "kind": "vocab", "gold": ["jmdict-1318560"], "note": ""}
+{"id": "q-047", "query": "精米とは", "lang": "ja", "kind": "vocab", "gold": ["jmdict-1380180"], "note": ""}
+{"id": "q-048", "query": "rice polishing", "lang": "en", "kind": "vocab", "gold": ["jmdict-1380180"], "note": ""}
+{"id": "q-049", "query": "how do you say silhouette in Japanese", "lang": "en", "kind": "vocab", "gold": ["jmdict-1063130"], "note": ""}
+{"id": "q-050", "query": "シルエット", "lang": "ja", "kind": "vocab", "gold": ["jmdict-1063130"], "note": "kana-only"}
+{"id": "q-051", "query": "乗り切る meaning", "lang": "mixed", "kind": "vocab", "gold": ["jmdict-1354970"], "note": ""}
+{"id": "q-052", "query": "verb meaning to weather a storm or ride out", "lang": "en", "kind": "vocab", "gold": ["jmdict-1354970"], "note": ""}
+{"id": "q-053", "query": "ready-made clothes off the rack", "lang": "en", "kind": "vocab", "gold": ["jmdict-1220430"], "note": ""}
+{"id": "q-054", "query": "既製服", "lang": "ja", "kind": "vocab", "gold": ["jmdict-1220430"], "note": ""}
+{"id": "q-055", "query": "走者", "lang": "ja", "kind": "vocab", "gold": ["jmdict-1402610"], "note": ""}
+{"id": "q-056", "query": "base runner in baseball", "lang": "en", "kind": "vocab", "gold": ["jmdict-1402610"], "note": ""}
+{"id": "q-057", "query": "返送", "lang": "ja", "kind": "vocab", "gold": ["jmdict-1512280"], "note": ""}
+{"id": "q-058", "query": "sending something back, return to sender", "lang": "en", "kind": "vocab", "gold": ["jmdict-1512280"], "note": ""}
+{"id": "q-059", "query": "妃殿下", "lang": "ja", "kind": "vocab", "gold": ["jmdict-1483050"], "note": ""}
+{"id": "q-060", "query": "princess, Her Royal Highness", "lang": "en", "kind": "vocab", "gold": ["jmdict-1483050"], "note": ""}
+{"id": "q-061", "query": "第一 meaning", "lang": "mixed", "kind": "vocab", "gold": ["jmdict-1415270"], "note": ""}
+{"id": "q-062", "query": "nano prefix 10^-9", "lang": "en", "kind": "vocab", "gold": ["jmdict-1090530"], "note": ""}
+{"id": "q-063", "query": "キリシタン", "lang": "ja", "kind": "vocab", "gold": ["jmdict-1042500"], "note": "kana-only"}
+{"id": "q-064", "query": "留置", "lang": "ja", "kind": "vocab", "gold": ["jmdict-1552820"], "note": ""}
+{"id": "q-065", "query": "detention during investigation", "lang": "en", "kind": "vocab", "gold": ["jmdict-1552820"], "note": ""}
+{"id": "q-066", "query": "撥ねる", "lang": "ja", "kind": "vocab", "gold": ["jmdict-1611260"], "note": ""}
+{"id": "q-067", "query": "to hit someone with a car", "lang": "en", "kind": "vocab", "gold": ["jmdict-1611260"], "note": ""}
+{"id": "q-068", "query": "短編コメディ、コント", "lang": "ja", "kind": "vocab", "gold": ["jmdict-1052740"], "note": ""}
+{"id": "q-069", "query": "it's useless to keep on thinking", "lang": "en", "kind": "sentence", "gold": ["tatoeba-4900"], "note": ""}
+{"id": "q-070", "query": "これ以上考えても無駄だ", "lang": "ja", "kind": "sentence", "gold": ["tatoeba-4900"], "note": ""}
+{"id": "q-071", "query": "there are many words I don't understand", "lang": "en", "kind": "sentence", "gold": ["tatoeba-4832"], "note": ""}
+{"id": "q-072", "query": "分からない言葉がたくさんある", "lang": "ja", "kind": "sentence", "gold": ["tatoeba-4832"], "note": ""}
+{"id": "q-073", "query": "pull into shape after washing", "lang": "en", "kind": "sentence", "gold": ["tatoeba-4977"], "note": ""}
+{"id": "q-074", "query": "smile now, cry later", "lang": "en", "kind": "sentence", "gold": ["tatoeba-5195"], "note": ""}
+{"id": "q-075", "query": "さぁ笑って、泣くのは後！", "lang": "ja", "kind": "sentence", "gold": ["tatoeba-5195"], "note": ""}
+{"id": "q-076", "query": "do introverts live shorter lives than extroverts", "lang": "en", "kind": "sentence", "gold": ["tatoeba-74562"], "note": ""}
+{"id": "q-077", "query": "内気な人は外向的な人より短命？", "lang": "ja", "kind": "sentence", "gold": ["tatoeba-74562"], "note": ""}
+{"id": "q-078", "query": "singing a cappella at a friend's wedding", "lang": "en", "kind": "sentence", "gold": ["tatoeba-74689"], "note": ""}
+{"id": "q-079", "query": "how do I form the causative passive", "lang": "en", "kind": "none", "gold": [], "note": "not in catalog (above N3)"}
+{"id": "q-080", "query": "explain the levels of keigo and when to use each", "lang": "en", "kind": "none", "gold": [], "note": "out of scope for v1"}
+{"id": "q-081", "query": "敬語の使い方を教えてください", "lang": "ja", "kind": "none", "gold": [], "note": "out of scope for v1"}
+{"id": "q-082", "query": "what is the Japanese subjunctive mood", "lang": "en", "kind": "none", "gold": [], "note": "no such category in Japanese"}
+{"id": "q-083", "query": "conjugate the verb 食べる into every classical form", "lang": "mixed", "kind": "none", "gold": [], "note": "classical forms not in corpus"}
