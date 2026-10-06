@@ -4,8 +4,8 @@
 
 # raw downloads (large, re-fetchable)
 data/raw/
-data/processed/*.jsonl
-!data/processed/.gitkeep
+# corpus.jsonl IS committed: it pins exactly what was indexed, and
+# Tatoeba's weekly export changes, so eval runs stay reproducible.
 
 # python
 __pycache__/

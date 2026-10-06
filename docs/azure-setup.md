@@ -104,3 +104,18 @@ One trap worth remembering: the search service was deleted and recreated to get
 off the Standard tier that the Foundry IQ flow provisioned ($249.98/month).
 Admin keys do not survive that, so a key copied before the recreate authenticates
 as garbage.
+
+## Measured index capacity (2026-10-05)
+
+| Documents | Storage used | Quota | Per doc |
+| --- | --- | --- | --- |
+| 2,912 (12 grammar + 1,500 JMdict + 1,400 Tatoeba) | 41.6 MB | 50 MB | ~14.3 KB |
+
+Per-document cost is about 2.4x the raw 1536-dim vector (6 KB); the remainder
+is HNSW graph and text index. **79% of the Free tier is consumed**, leaving
+room for roughly 750 more documents at these dimensions.
+
+Uploads must be batched small. At 100 documents per request the payload is
+~3 MB of JSON floats and the Free tier resets the connection
+(`ConnectionResetError 10054`) partway through; 25 per request succeeded with
+zero retries. `--resume` skips documents already indexed.
