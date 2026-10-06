@@ -64,6 +64,12 @@ def check_index_and_query() -> tuple[bool, bool]:
         client.create_or_update_index(build_index(PROBE_INDEX, s, with_semantic=True))
         print("  index: created with semantic configuration")
     except HttpResponseError as exc:
+        # Only a 400 means "this service won't take that index definition".
+        # 401/403 is a bad key, and silently reporting that as "semantic
+        # ranker unavailable" would be a wrong answer to the one question
+        # this probe exists to settle.
+        if exc.status_code != 400:
+            raise
         print(f"  index: semantic configuration rejected ({exc.status_code}) -- retrying without")
         semantic_available = False
         client.create_or_update_index(build_index(PROBE_INDEX, s, with_semantic=False))
@@ -85,6 +91,8 @@ def check_index_and_query() -> tuple[bool, bool]:
             )
             print("  semantic query: accepted -- semantic ranker usable on this tier")
         except HttpResponseError as exc:
+            if exc.status_code != 400:
+                raise
             semantic_available = False
             print(f"  semantic query: REJECTED ({exc.status_code}) {exc.message.splitlines()[0]}")
 
